@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referências Bibliográficas | PNT & Open Buildings — UNICAMP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-header: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --accent: #1d4ed8;
+      --accent-hover: #1e40af;
+      --accent-soft: #eff6ff;
+      --accent-border: #bfdbfe;
+      --unicamp-red: #cc0000;
+      --border-color: #e2e8f0;
+      --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+      --card-shadow-hover: 0 12px 28px -4px rgba(29, 78, 216, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.06);
+      --radius: 16px;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-header: linear-gradient(135deg, #090d16 0%, #172554 65%, #1e3a8a 100%);
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --accent-soft: rgba(59, 130, 246, 0.14);
+      --accent-border: rgba(59, 130, 246, 0.3);
+      --border-color: #1e293b;
+      --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+      --card-shadow-hover: 0 12px 28px -4px rgba(59, 130, 246, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header / Hero */
+    header {
+      background: var(--bg-header);
+      color: #ffffff;
+      padding: 2.75rem 1.25rem 3.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .header-container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .institution-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .institution-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #ef4444;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #ef4444;
+    }
+
+    .theme-btn {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.2s ease;
+    }
+
+    .theme-btn:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2.35rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      font-size: clamp(0.92rem, 2.2vw, 1.05rem);
+      color: rgba(255, 255, 255, 0.86);
+      max-width: 760px;
+      font-weight: 400;
+    }
+
+    /* Main Container */
+    main {
+      max-width: 900px;
+      margin: -2rem auto 3.5rem;
+      padding: 0 1.25rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Controls Card */
+    .controls-bar {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .search-wrapper {
+      flex: 1;
+      min-width: 220px;
+      position: relative;
+    }
+
+    .search-wrapper svg {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      width: 18px;
+      height: 18px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.7rem 0.9rem 0.7rem 2.6rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-size: 0.92rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .copy-all-btn {
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      padding: 0.7rem 1.1rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: background 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    .copy-all-btn:hover {
+      background: var(--accent-hover);
+    }
+
+    .copy-all-btn:active {
+      transform: scale(0.98);
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 0.45rem;
+      overflow-x: auto;
+      padding-bottom: 0.2rem;
+      scrollbar-width: none;
+    }
+
+    .filter-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .pill {
+      border: 1px solid var(--border-color);
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .pill.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    /* Reference List */
+    .ref-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .ref-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.5rem;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      position: relative;
+    }
+
+    .ref-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--accent-border);
+    }
+
+    .ref-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .ref-id-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .ref-number {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+      font-weight: 800;
+      font-size: 0.84rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 8px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ref-tag {
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      background: var(--bg-primary);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+
+    .ref-year {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .ref-text {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      line-height: 1.75;
+      word-break: break-word;
+    }
+
+    .ref-text strong {
+      font-weight: 700;
+    }
+
+    .ref-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-top: 0.2rem;
+    }
+
+    .btn-link, .btn-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.42rem 0.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.18s ease;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-link {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+    }
+
+    .btn-link:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .btn-copy {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-copy:hover {
+      border-color: var(--text-secondary);
+      color: var(--text-primary);
+    }
+
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: var(--bg-secondary);
+      border-radius: var(--radius);
+      border: 1px dashed var(--border-color);
+      color: var(--text-muted);
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0f172a;
+      color: #ffffff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.25rem 3rem;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border-color);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 2rem 1rem 3rem;
+      }
+      .ref-card {
+        padding: 1.15rem 1.15rem;
+      }
+      .ref-text {
+        font-size: 0.9rem;
+      }
+      .copy-all-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="top-bar">
+        <div class="institution-badge">
+          <span class="institution-dot"></span>
+          <span>FEEC / UNICAMP • Iniciação Científica</span>
+        </div>
+        <button class="theme-btn" id="themeToggle" aria-label="Alternar tema">
+          <span id="themeIcon">🌙</span>
+          <span id="themeText">Modo Escuro</span>
+        </button>
+      </div>
+      <h1>Referências Bibliográficas</h1>
+      <p class="subtitle">
+        Identificação de Perdas Não Técnicas (PNT) na distribuição de energia elétrica utilizando imagens de satélite e o dataset <em>Google Open Buildings</em>.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls-bar" aria-label="Controles de busca e filtro">
+      <div class="search-row">
+        <div class="search-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
+          </svg>
+          <input
+            type="search"
+            id="searchInput"
+            class="search-input"
+            placeholder="Buscar por autor, título, palavra-chave ou número [1]-[10]..."
+          />
+        </div>
+        <button class="copy-all-btn" id="copyAllBtn">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+          </svg>
+          Copiar todas (ABNT)
+        </button>
+      </div>
+
+      <div class="filter-pills" id="filterPills">
+        <button class="pill active" data-filter="all">Todas (10)</button>
+        <button class="pill" data-filter="pnt">Perdas Não Técnicas & Energia</button>
+        <button class="pill" data-filter="geo">Open Buildings & Visão Computacional</button>
+        <button class="pill" data-filter="algo">Algoritmos & Geometria</button>
+        <button class="pill" data-filter="academico">Dissertações & TCC</button>
+      </div>
+    </section>
+
+    <div class="ref-list" id="refList">
+      <!-- [1] -->
+      <article class="ref-card" data-category="pnt" data-id="1">
+        <div class="ref-header">
+          <div class="ref-id-group">
+            <span class="ref-number">[1]</span>
+            <span class="ref-tag">Perdas Não Técnicas & Energia</span>
+          </div>
+          <span class="ref-year">2021</span>
+        </div>
+        <p class="ref-text" id="ref-text-1">
+          NORTHEAST GROUP. <strong>Electricity theft and non-technical losses: quantifying the non-technical loss problem</strong>. [S. l.: s. n.], 2021. Disponível em: https://northeastgroup.com/2021/10/20/electricity-theft-non-technical-losses. Acesso em: 23 out. 2026.
+        </p>
+        <div class="ref-actions">
+          <a href="https://northeastgroup.com/2021/10/20/electricity-theft-non-technical-losses" target="_blank" rel="noopener noreferrer" class="btn-link">
+            🔗 Acessar publicação
+          </a>
+          <button class="btn-copy" onclick="copyRef(1)">📋 Copiar citação</button>
+        </div>
+      </article>
+
+      <!-- [2] -->
+      <article class="ref-card" data-category="geo" data-id="2">
+        <div class="ref-header">
+          <div class="ref-id-group">
+            <span class="ref-number">[2]</span>
+            <span class="ref-tag">Open Buildings & Visão Computacional</span>
+          </div>
+          <span class="ref-year">Google Research</span>
+        </div>
+        <p class="ref-text" id="ref-text-2">
+          GOOGLE RESEARCH. <strong>Open Buildings</strong>. [S. l.: s. n.], [202-?]. Disponível em: https://sites.research.google/gr/open-buildings/. Acesso em: 5 maio 2026.
+        </p>
+        <div class="ref-actions">
+          <a href="https://sites.research.google/gr/open-buildings/" target="_blank" rel="noopener noreferrer" class="btn-link">
+            🔗 Acessar dataset
+          </a>
+          <button class="btn-copy" onclick="copyRef(2)">📋 Copiar citação</button>
+        </div>
+      </article>
+
+      <!-- [3] -->
+      <article class="ref-card" data-category="geo" data-id="3">
+        <div class="ref-header">
+          <div class="ref-id-group">
+            <span class="ref-number">[3]</span>
+            <span class="ref-tag">Open Buildings & Visão Computacional</span>
+          </div>
+          <span class="ref-year">2021 • arXiv</span>
+        </div>
+        <p class="ref-text" id="ref-text-3">
+          SIRKO, W. et al. <strong>Continental-scale building detection at high resolution with deep learning</strong>. arXiv:2107.13078, 2021. Disponível em: https://arxiv.org/abs/2107.13078. Acesso em: 23 out. 2026.
+        </p>
+        <div class="ref-actions">
+          <a href="https://arxiv.org/abs/2107.13078" target="_blank" rel="noopener noreferrer" class="btn-link">
+            🔗 Acessar artigo (arXiv)
+          </a>
+          <button class="btn-copy" onclick="copyRef(3)">📋 Copiar citação</button>
+        </div>
+      </article>
+
+      <!-- [4] -->
+      <article class="ref-card" data-category="algo" data-id="4">
+        <div class="ref-header">
+          <div class="ref-id-group">
+            <span class="ref-number">[4]</span>
+            <span class="ref-tag">Algoritmos & Geometria</span>
+          </div>
+          <span class="ref-year">2020 • Nature Methods</span>
+        </div>
+        <p class="ref-text" id="ref-text-4">
+          VIRTANEN, P. et al. SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python. <strong>Nature Methods</strong>, v. 17, p. 261–272, 2020. DOI: https://doi.org/10.1038/s41592-019-0686-2.
+        </p>
+        <div class="ref-actions">
+          <a href="https://doi.org/10.1038/s41592-019-0686-2" target="_blank" rel="noopener noreferrer" class="btn-link">
+            🔗 Acessar DOI
+          </a>
+          <button class="btn-copy" onclick="copyRef(4)">📋 Copiar citação</button>
+        </div>
+      </article>
+
+      <!-- [5] -->
+      <article class="ref-card" data-category="algo" data-id="5">
+        <div class="ref-header">
+          <div class="ref-id-group">
+            <span class="ref-number">[5]</span>
+            <span class="ref-tag">Algoritmos & Geometria</span>
+          </div>
+          <span class="ref-year">2016 • IEEE TAES</span>
+        </div>
+        <p class="ref-text" id="ref-text-5">
+          CROUSE, D. F. On implementing 2D rectangular assignment algorithms. <strong>IEEE Transactions on Aerospace and Electronic Systems</strong>, v. 52, n. 4, p. 1679–1696, ago. 2016. DOI: https://doi.org/10.1109/TAES.2016.140952.
+        </p>
+        <div class="ref-actions">
+          <a href="https://doi.org/10.1109/TAES.2016.140952" target="_blank" rel="noopener noreferrer" class="btn-link">
+            🔗 Acessar DOI (IEEE)
+          </a>
+          <button class="btn-copy" onclick="copyRef(5)">📋 Copiar citação</button>
+        </div>
+      </article>
+
+      <!-- [6] -->
+      <article class="ref-card" data-category="algo" data-id="6">
+        <div class="ref-header">
+          <div class="ref-id-group">
+            <span class="ref-number">[6]</span>
+            <span class="ref-tag">Algoritmos & Geometria</span>
+          </div>
+          <span class="ref-year">1999 • Machine Vision</span>
+        </div>
+        <p class="ref-text" id="ref-text-6">
+          ROSIN, P. L. Measuring rectangularity. <strong>Machine Vision and Applications</strong>, v. 11, n. 4, p. 191–196, 1999.
+        </p>
+        <div class="ref-actions">
+          <a href="https://doi.org/10.1007/s001380050101" target="_blank" rel="noopener noreferrer" class="btn-link">
+            🔗 Consultar periódico
+          </a>
+          <button class="btn-copy" onclick="copyRef(6)">📋 Copiar citação</button>
+        </div>
+      </article>
+
+      <!-- [7] -->
+      <article class="ref-card" data-category="academico" data-id="7">
+        <div class="ref-header">
+          <div class="ref-id-group">
+            <span class="ref-number">[7]</span>
+            <span class="ref-tag">Dissertações & TCC</span>
+          </div>
+          <span class="ref-year">2025 • FEEC/UNICAMP</span>
+        </div>
+        <p class="ref-text" id="ref-text-7">
+          SILVA, Nelson Rodrigues. <strong>Potenciais aplicações da visão computacional e ortoimagens para otimizar processos essenciais na distribuição de energia elétrica</strong>. Orientadora: Fernanda Caseño Trindade Arioli. 2025. 84 f. Dissertação (Mestrado em Engenharia Elétrica) – Faculdade de Engenharia Elétrica e de Computação, Universidade Estadual de Campinas, Campinas, 2025.
+        </p>
+        <div class="ref-actions">
+          <button class="btn-copy" onclick="copyRef(7)">📋 Copiar citação</button>
+        </div>
+      </article>
+
+      <!-- [8] -->
+      <article class="ref-card" data-category="academico" data-id="8">
+        <div class="ref-header">
+          <div class="ref-id-group">
+            <span class="ref-number">[8]</span>
+            <span class="ref-tag">Dissertações & TCC</span>
+          </div>
+          <span class="ref-year">2023 • UNISINOS</span>
+        </div>
+        <p class="ref-text" id="ref-text-8">
+          CARDOSO, André Luiz Martins. <strong>Estimativa de perdas não técnicas de áreas em vulnerabilidade social e proposição de mitigação com base no marco legal da microgeração e minigeração distribuída</strong>. Orientador: Lúcio Renê Prade. 2023. 96 f. Trabalho de Conclusão de Curso (Bacharelado em Engenharia Elétrica) – Unidade Acadêmica de Graduação, Universidade do Vale do Rio dos Sinos, São Leopoldo, 2023.
+        </p>
+        <div class="ref-actions">
+          <button class="btn-copy" onclick="copyRef(8)">📋 Copiar citação</button>
+        </div>
+      </article>
+
+      <!-- [9] -->
+      <article class="ref-card" data-category="pnt" data-id="9">
+        <div class="ref-header">
+          <div class="ref-id-group">
+            <span class="ref-number">[9]</span>
+            <span class="ref-tag">Perdas Não Técnicas & Energia</span>
+          </div>
+          <span class="ref-year">2019 • Eletrobras</span>
+        </div>
+        <p class="ref-text" id="ref-text-9">
+          ELETROBRAS. <strong>PPH 2019: Programa de Performance Humana</strong>. Rio de Janeiro: Eletrobras, 2019. Disponível em: https://eletrobras.com/pt/Paginas/PPH-2019.aspx. Acesso em: 5 maio 2026.
+        </p>
+        <div class="ref-actions">
+          <a href="https://eletrobras.com/pt/Paginas/PPH-2019.aspx" target="_blank" rel="noopener noreferrer" class="btn-link">
+            🔗 Acessar página
+          </a>
+          <button class="btn-copy" onclick="copyRef(9)">📋 Copiar citação</button>
+        </div>
+      </article>
+
+      <!-- [10] -->
+      <article class="ref-card" data-category="pnt" data-id="10">
+        <div class="ref-header">
+          <div class="ref-id-group">
+            <span class="ref-number">[10]</span>
+            <span class="ref-tag">Perdas Não Técnicas & Energia</span>
+          </div>
+          <span class="ref-year">2022 • ENTAC</span>
+        </div>
+        <p class="ref-text" id="ref-text-10">
+          GERALDI, Matheus et al. Análise longitudinal do consumo de energia elétrica do setor residencial no Brasil. In: ENCONTRO NACIONAL DE TECNOLOGIA DO AMBIENTE CONSTRUÍDO, 19., 2022, Canela. <strong>Anais [...]</strong>. Porto Alegre: ANTAC, 2022. v. 19, n. 1, p. 1–14. DOI: https://doi.org/10.46421/entac.v19i1.2005. Disponível em: https://eventos.antac.org.br/entac/pt_BR/article/view/2005. Acesso em: 15 out. 2026.
+        </p>
+        <div class="ref-actions">
+          <a href="https://doi.org/10.46421/entac.v19i1.2005" target="_blank" rel="noopener noreferrer" class="btn-link">
+            🔗 Acessar artigo (DOI)
+          </a>
+          <button class="btn-copy" onclick="copyRef(10)">📋 Copiar citação</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="empty-state" id="emptyState">
+      Nenhuma referência encontrada para o termo pesquisado.
+    </div>
+  </main>
+
+  <footer>
+    <p><strong>Faculdade de Engenharia Elétrica e de Computação (FEEC) — UNICAMP</strong></p>
+    <p style="margin-top: 0.35rem;">Formatação segundo a norma ABNT NBR 6023 • Página otimizada para acesso via QR Code</p>
+  </footer>
+
+  <div class="toast" id="toast">✅ Citação copiada para a área de transferência!</div>
+
+  <script>
+    // Busca e filtro por categoria
+    const searchInput = document.getElementById('searchInput');
+    const pills = document.querySelectorAll('.pill');
+    const cards = document.querySelectorAll('.ref-card');
+    const emptyState = document.getElementById('emptyState');
+    let currentFilter = 'all';
+
+    function filterCards() {
+      const query = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const id = card.getAttribute('data-id');
+        const text = card.innerText.toLowerCase();
+
+        const matchesCategory = currentFilter === 'all' || category === currentFilter;
+        const matchesQuery = !query || text.includes(query) || `[${id}]` === query;
+
+        if (matchesCategory && matchesQuery) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', filterCards);
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentFilter = pill.getAttribute('data-filter');
+        filterCards();
+      });
+    });
+
+    // Copiar referência individual ou todas
+    const toast = document.getElementById('toast');
+    let toastTimeout;
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    function copyRef(id) {
+      const text = document.getElementById(`ref-text-${id}`).innerText.trim();
+      navigator.clipboard.writeText(`[${id}] ${text}`).then(() => {
+        showToast(`✅ Referência [${id}] copiada!`);
+      });
+    }
+
+    document.getElementById('copyAllBtn').addEventListener('click', () => {
+      const allRefs = Array.from(cards).map(card => {
+        const id = card.getAttribute('data-id');
+        const text = document.getElementById(`ref-text-${id}`).innerText.trim();
+        return `[${id}] ${text}`;
+      }).join('\n\n');
+
+      navigator.clipboard.writeText(allRefs).then(() => {
+        showToast('✅ Todas as 10 referências foram copiadas!');
+      });
+    });
+
+    // Alternar Modo Claro / Escuro
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Modo Escuro';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Modo Claro';
+      }
+    });
+  </script>
+</body>
+</html>

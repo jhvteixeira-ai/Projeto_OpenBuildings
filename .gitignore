@@ -1,4 +1,19 @@
-/cache
-/processar_mapa.py
-/teste_atual2.html
-OpBuildingCPS.gz
+# Arquivos pesados de dados e cache
+*.gz
+cache/
+__pycache__/
+*.pyc
+
+# Mapas HTML pesados gerados localmente (dezenas de MB cada)
+/metodologia1_*.html
+/meto2_ic.html
+/Mapas Testes/
+/testRange.html
+
+# Documentos e bases sensíveis na pasta Arquivos (mantendo apenas o index.html)
+/Arquivos/*.gz
+/Arquivos/*.pdf
+/Arquivos/*.docx
+/Arquivos/*.xlsx
+/m1_*.xlsx
+/m2_*.xlsx
