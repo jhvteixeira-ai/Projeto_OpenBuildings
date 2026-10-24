@@ -67,17 +67,17 @@ Para evitar superestimação de perdas comerciais:
 - **Filtro de Galpões e Comércios (Grupo A / Média Tensão):** Edificações sem medidor de baixa tensão com $\text{Área} \ge 400\text{ m}^2$ e $\text{Retangularidade} \ge 0,85$ são classificadas como `NAO RESIDENCIAL (GALPAO/COMERCIO)` para verificação em Média Tensão, sem atribuição de perdas residenciais fictícias.
 - **Filtro de Anexos e Edículas (Res. ANEEL nº 1.000/2021):** Construções secundárias sem medidor próprio situadas a até **6 metros** de uma edificação regular com medidor e com área $\le 20\text{ m}^2$ são identificadas como `ANEXO / EDICULA (COM MEDIDOR)` e isentas da contabilização de fraude.
 
-### Etapa 6 — Perfis de Estimativa de Consumo (P2 a P6)
+### Etapa 6 — Perfis de Estimativa de Consumo (P1 a P5)
 Para cada edificação classificada como **Suspeita Residencial**, o impacto energético mensal/anual e financeiro (tarifa média $\text{R\$ } 0,95/\text{kWh}$) é avaliado sob cinco perfis fundamentados na literatura:
 
 | Perfil | Descrição | Consumo Estimado ($\text{kWh/mês}$) | Fundamentação / Fonte |
 | :--- | :--- | :---: | :--- |
-| **P2 (Verão)** | Sazonalidade de Verão | `460,00` | Silva (2025) — Dissertação FEEC/UNICAMP |
-| **P2 (Inverno)** | Sazonalidade de Inverno | `190,00` | Silva (2025) — Dissertação FEEC/UNICAMP |
-| **P3 (Próprio)** | Modelagem *Bottom-Up* de Equipamentos Essenciais | `105,77` | Tabelas de Eficiência Energética PBE/INMETRO |
-| **P4 (Sudeste)** | Média Residencial — Região Sudeste | `174,06` | Geraldi et al. (2022) / EPE / PROCEL ($2.088,7\text{ kWh/ano}$) |
-| **P5 (Baixa Renda)** | Média Residencial Baixa Renda — Sudeste | `153,66` | Geraldi et al. (2022) / EPE / PROCEL ($1.843,9\text{ kWh/ano}$) |
-| **P6 (Mediana Local)** | **Cenário Central:** Mediana Empírica do Bairro | `~168,00` | Calculada diretamente das UCs regulares na área de estudo |
+| **P1 (Verão)** | Sazonalidade de Verão | `460,00` | Silva (2025) — Dissertação FEEC/UNICAMP |
+| **P1 (Inverno)** | Sazonalidade de Inverno | `190,00` | Silva (2025) — Dissertação FEEC/UNICAMP |
+| **P2 (Próprio)** | Modelagem *Bottom-Up* de Equipamentos Essenciais | `105,77` | Tabelas de Eficiência Energética PBE/INMETRO |
+| **P3 (Sudeste)** | Média Residencial — Região Sudeste | `174,06` | Geraldi et al. (2022) / EPE / PROCEL ($2.088,7\text{ kWh/ano}$) |
+| **P4 (Baixa Renda)** | Média Residencial Baixa Renda — Sudeste | `153,66` | Geraldi et al. (2022) / EPE / PROCEL ($1.843,9\text{ kWh/ano}$) |
+| **P5 (Mediana Local)** | **Cenário Central:** Mediana Empírica do Bairro | `~168,00` | Calculada diretamente das UCs regulares na área de estudo |
 
 ---
 
