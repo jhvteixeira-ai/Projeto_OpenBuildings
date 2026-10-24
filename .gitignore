@@ -1,19 +1,5 @@
-# Arquivos pesados de dados e cache
-*.gz
-cache/
-__pycache__/
-*.pyc
-
-# Mapas HTML pesados gerados localmente (dezenas de MB cada)
-/metodologia1_*.html
-/meto2_ic.html
-/Mapas Testes/
-/testRange.html
-
-# Documentos e bases sensíveis na pasta Arquivos (mantendo apenas o index.html)
-/Arquivos/*.gz
-/Arquivos/*.pdf
-/Arquivos/*.docx
-/Arquivos/*.xlsx
-/m1_*.xlsx
-/m2_*.xlsx
+# Ignorar tudo no repositório principal, mantendo apenas o código principal e o README
+/*
+!/README.md
+!/metodologia1_comparativa.py
+!/.gitignore
